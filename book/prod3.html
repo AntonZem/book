@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Карточка товара</title>
+  <link rel="stylesheet" type="text/css" href="css/book.css">
+</head>
+<body>
+    <div>
+        <h1>Карточка товара</h1>
+        <div class="card">
+            <img id="main-image" src="image/3.jpg">
+            <div class="more-images">
+                <img src="image/31.jpg" onmouseover="changeImage('image/31.jpg')" onmouseout="resetImage()">
+                <img src="image/32.jpg" onmouseover="changeImage('image/33.jpg')" onmouseout="resetImage()">
+            </div>
+            <p>Название - Четвертое крыло: роман</p>
+            <p>Серия - Эмпирей</p>
+            <p>Цена - 1140</p>
+            <p>Тип обложки - Твердый переплёт</p>
+            <p>Кол-во страниц - 752</p>
+            <p>Вес, г - 930</p>
+            <p>Автор - Яррос Ребекка</p>
+            <p>
+                «Четвертое крыло» - абсолютный бестселлер молодежной литературы, мгновенно ворвавшийся в ТОП-5 самых продаваемых книг на Amazon среди всех категорий. Роман Ребекки Яррос вышел в мае 2023 года и взорвал чарты книжных рейтингов, получил более 140 000 оценок на GoodReads за месяц продаж и приобрел миллионы поклонников.
+                Если ты поступил в академию Басгиат, у тебя есть только два выхода: окончить ее или умереть…
+                Только глупец не желает попасть в квандрант всадников. Три года обучения, и у тебя будет все: магические способности, высокое положение в обществе, уважение, жалование, а главное – собственный дракон! Правда, не все выживают на вступительном испытании, и еще меньше – во время отборов, ведь не каждый дракон готов установить связь с человеком. А нет дракона – нет и силы…
+                Вайолет с малых лет готовилась стать писцом и вести тихую жизнь в окружении книг. Но по приказу матери, прославленного генерала, отправляется в военную академию в квадрант всадников.
+                Она единственная без подготовки. А это равнозначно смертельному приговору.
+            </p>
+
+            <div id="rating_bar">
+                <span id="rate_1">&#9734;</span>
+                <span id="rate_2">&#9734;</span>
+                <span id="rate_3">&#9734;</span>
+                <span id="rate_4">&#9734;</span>
+                <span id="rate_5">&#9734;</span>
+            </div>
+        </div>
+    </div>
+    <p><a href="4 laba.html" class="back-button">Отзыв</a></p>
+    <button onclick="goBack()" class="back-button">Назад</button>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function changeImage(imageUrl) {
+            document.getElementById('main-image').src = imageUrl;
+        }
+
+        function resetImage() {
+            document.getElementById('main-image').src = 'image/3.jpg';
+        }
+
+
+        let spans = document.getElementById("rating_bar").getElementsByTagName('span');
+
+        for (let i = 0; i < spans.length; i++) {
+            spans[i].onmouseover = hoverStar;
+        }
+
+        function hoverStar() {
+            for (let i = 0; i < this.id.charAt(5); i++) {
+                spans[i].innerText = '⭐️';
+            }
+
+            for (let i = this.id.charAt(5); i < 5; i++) {
+                spans[i].innerText = '✰';
+            }
+        }
+    </script>
+</body>
+</html>

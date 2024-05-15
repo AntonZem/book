@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Карточка товара</title>
+  <link rel="stylesheet" type="text/css" href="css/book.css">
+</head>
+<body>
+    <div>
+        <h1>Карточка товара</h1>
+        <div class="card">
+            <img id="main-image" src="image/8.jpg">
+            <div class="more-images">
+                <img src="image/8.jpg" onmouseover="changeImage('image/8.jpg')" onmouseout="resetImage()">
+                <img src="image/8.jpg" onmouseover="changeImage('image/8.jpg')" onmouseout="resetImage()">
+            </div>
+            <p>Название - Счастливый Карман, Полный Денег</p>
+            <!--<p>Серия - </p>-->
+            <p>Цена - 599</p>
+            <p>Тип обложки - Твердый переплёт</p>
+            <p>Кол-во страниц - 288</p>
+            <p>Вес, г - 170</p>
+            <p>Автор - Джиканди Дэвид</p>
+            <p>Счастливый Карман, Полный Денег" - невероятно вдохновляющая книга о многих вещах, которые должны привести нас к богатству, радости и изобилию. </p>
+
+            <div id="rating_bar">
+                <span id="rate_1">&#9734;</span>
+                <span id="rate_2">&#9734;</span>
+                <span id="rate_3">&#9734;</span>
+                <span id="rate_4">&#9734;</span>
+                <span id="rate_5">&#9734;</span>
+            </div>
+        </div>
+    </div>
+    <p><a href="4 laba.html" class="back-button">Отзыв</a></p>
+    <button onclick="goBack()" class="back-button">Назад</button>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function changeImage(imageUrl) {
+            document.getElementById('main-image').src = imageUrl;
+        }
+
+        function resetImage() {
+            document.getElementById('main-image').src = 'image/1.jpg';
+        }
+
+
+        let spans = document.getElementById("rating_bar").getElementsByTagName('span');
+
+        for (let i = 0; i < spans.length; i++) {
+            spans[i].onmouseover = hoverStar;
+        }
+
+        function hoverStar() {
+            for (let i = 0; i < this.id.charAt(5); i++) {
+                spans[i].innerText = '⭐️';
+            }
+
+            for (let i = this.id.charAt(5); i < 5; i++) {
+                spans[i].innerText = '✰';
+            }
+        }
+    </script>
+</body>
+</html>

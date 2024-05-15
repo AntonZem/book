@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Карточка товара</title>
+  <link rel="stylesheet" type="text/css" href="css/book.css">
+</head>
+<body>
+    <div>
+        <h1>Карточка товара</h1>
+        <div class="card">
+            <img id="main-image" src="image/1.jpg">
+            <div class="more-images">
+                <img src="image/11.jpg" onmouseover="changeImage('image/12.jpg')" onmouseout="resetImage()">
+                <img src="image/12.jpg" onmouseover="changeImage('image/11.jpg')" onmouseout="resetImage()">
+            </div>
+            <p>Название - Руны огненных птиц</p>
+            <p>Серия - Охотники за мирами</p>
+            <p>Цена - 900</p>
+            <p>Тип обложки - Твердый переплёт</p>
+            <p>Кол-во страниц - 448</p>
+            <p>Вес, г - 290</p>
+            <p>Автор - Анна Ерм</p>
+            <p>Дав слово проклятой деве, Ситрик и сам стал проклят, поплатившись за свою неосторожность. Вот уже много дней он бродит по тёмным лесам, чтобы отыскать колдуна, который снимет злые чары, соткав из трав Зелёный покров. И путь Ситрика освещён лишь оперением огненной птицы. </p>
+
+            <div id="rating_bar">
+                <span id="rate_1">&#9734;</span>
+                <span id="rate_2">&#9734;</span>
+                <span id="rate_3">&#9734;</span>
+                <span id="rate_4">&#9734;</span>
+                <span id="rate_5">&#9734;</span>
+            </div>
+        </div>
+    </div>
+    <p><a href="4 laba.html" class="back-button">Отзыв</a></p>
+    <button onclick="goBack()" class="back-button">Назад</button>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function changeImage(imageUrl) {
+            document.getElementById('main-image').src = imageUrl;
+        }
+
+        function resetImage() {
+            document.getElementById('main-image').src = 'image/1.jpg';
+        }
+
+
+        let spans = document.getElementById("rating_bar").getElementsByTagName('span');
+
+        for (let i = 0; i < spans.length; i++) {
+            spans[i].onmouseover = hoverStar;
+        }
+
+        function hoverStar() {
+            for (let i = 0; i < this.id.charAt(5); i++) {
+                spans[i].innerText = '⭐️';
+            }
+
+            for (let i = this.id.charAt(5); i < 5; i++) {
+                spans[i].innerText = '✰';
+            }
+        }
+    </script>
+</body>
+</html>

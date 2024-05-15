@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Карточка товара</title>
+  <link rel="stylesheet" type="text/css" href="css/book.css">
+</head>
+<body>
+    <div>
+        <h1>Карточка товара</h1>
+        <div class="card">
+            <img id="main-image" src="image/2.jpg">
+            <div class="more-images">
+                <img src="image/21.jpg" onmouseover="changeImage('image/21.jpg')" onmouseout="resetImage()">
+                <img src="image/22.jpg" onmouseover="changeImage('image/22.jpg')" onmouseout="resetImage()">
+            </div>
+            <p>Название - Как перестать беспокоиться и начать жить</p>
+            <p>Серия - Одиночная книга</p>
+            <p>Цена - 450</p>
+            <p>Тип обложки - Мягкий переплёт</p>
+            <p>Кол-во страниц - 420</p>
+            <p>Вес, г - 380</p>
+            <p>Автор - Карнеги Дейл</p>
+            <p>Обновленный впервые за более чем сорок лет вневременной бестселлер Дейла Карнеги "Как перестать беспокоиться и начать жить" — классика, которая улучшила и изменила личную и профессиональную жизнь миллионов людей. Это одна из самых влиятельных книг в мире, она входит во все списки бестселлеров и переведена почти на все языки.</p>
+            <div id="rating_bar">
+                <span id="rate_1">&#9734;</span>
+                <span id="rate_2">&#9734;</span>
+                <span id="rate_3">&#9734;</span>
+                <span id="rate_4">&#9734;</span>
+                <span id="rate_5">&#9734;</span>
+            </div>
+        </div>
+    </div>
+    <p><a href="4 laba.html" class="back-button">Отзыв</a></p>
+    <button onclick="goBack()" class="back-button">Назад</button>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function changeImage(imageUrl) {
+            document.getElementById('main-image').src = imageUrl;
+        }
+
+        function resetImage() {
+            document.getElementById('main-image').src = 'image/2.jpg';
+        }
+
+
+        let spans = document.getElementById("rating_bar").getElementsByTagName('span');
+
+        for (let i = 0; i < spans.length; i++) {
+            spans[i].onmouseover = hoverStar;
+        }
+
+        function hoverStar() {
+            for (let i = 0; i < this.id.charAt(5); i++) {
+                spans[i].innerText = '⭐️';
+            }
+
+            for (let i = this.id.charAt(5); i < 5; i++) {
+                spans[i].innerText = '✰';
+            }
+        }
+    </script>
+</body>
+</html>

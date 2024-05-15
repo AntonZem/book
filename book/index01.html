@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style5.css">
+    <title>Главная</title>
+</head>
+
+
+<body>
+
+    <ul class="menu-main">
+        <li><a href="index01.html">Главная</a></li>
+        <li><a href="maincat.html">Каталог</a></li>
+        <li><a href="about.html">О нас</a></li>
+    </ul>
+    <div class="banner">
+        <img src="image/8.jpg" class="banner-img">
+        <img src="image/7.jpg" class="banner-img">
+        <img src="image/6.jpg" class="banner-img">
+        <img src="image/8.jpg" class="banner-img">
+        <img src="image/4.jpg" class="banner-img">
+        <img src="image/5.jpg" class="banner-img">
+    </div>
+    <div class="buy"><a><p>Покупайте!</p></a></div>
+    <div class="slider">
+        <a href="prod1.html">
+            <img src="image\1.jpg" class="active">
+        </a>
+        <a href="prod2.html">
+            <img src="image\2.jpg" class="active">
+        </a>
+        <a href="prod3.html">
+            <img src="image\3.jpg" class="active">
+        </a>
+    </div>
+    <div class="button-container">
+        <button onclick="prevImage()" class="button">Назад</button>
+        <button onclick="nextImage()" class="button">Вперед</button>
+    </div>
+
+    <script>
+        var currentImageIndex = 0;
+        var images = document.querySelectorAll('.slider img');
+
+        function showImage(index) {
+            images.forEach(img => img.classList.remove('active'));
+            images[index].classList.add('active');
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            showImage(currentImageIndex);
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            showImage(currentImageIndex);
+        }
+
+        showImage(currentImageIndex);
+
+        var currentBannerIndex = 0;
+        var bannerImages = document.querySelectorAll('.banner-img');
+
+        function showBannerImage(index) {
+            bannerImages.forEach(img => img.classList.remove('active'));
+            bannerImages[index].classList.add('active');
+        }
+
+        function nextBannerImage() {
+            currentBannerIndex = (currentBannerIndex + 1) % bannerImages.length;
+            showBannerImage(currentBannerIndex);
+        }
+
+
+        showBannerImage(currentBannerIndex);
+
+     
+        setInterval(nextBannerImage, 3000); 
+
+    </script>
+   
+    <script>
+        var currentImageIndex = 0;
+        var images = document.querySelectorAll('.slider img');
+
+        function showImage(index) {
+            images.forEach(img => img.classList.remove('active'));
+            images[index].classList.add('active');
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            showImage(currentImageIndex);
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            showImage(currentImageIndex);
+        }
+
+        showImage(currentImageIndex);
+    </script>
+
+    
+    <div class="sales">
+        <div class="sales-tittle" style="padding-top: 40px;">
+            Скидки!!!
+        </div>
+    </div>
+
+    <div class="sale">
+        <div class="img-sale">
+            <img src="image/sales.png" width="500px"; height="300px";padding-top="100px">
+        </div>
+        <div>
+            <div class="tittle1">Покупайте и наслаждайтесь любимыми книгами в каталоге!</div>
+            <div class="text1">
+                <br>На все книги сейчас действует скидка
+                <br><br><br>
+                <a href="maincat.html" style="color: white;"> Подробнее</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

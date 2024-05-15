@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/style5.css">
+</head>
+
+<body>
+  <h1>Книги</h1>
+  <div class="banner">
+      <img src="image/r1.jpg" class="banner-img">
+      <img src="image/r2.jpg" class="banner-img">
+      <img src="image/r3.jpg" class="banner-img">
+      <img src="image/r4.jpg" class="banner-img">
+      <img src="image/r5.jpg" class="banner-img">
+      <img src="image/r6.jpg" class="banner-img">
+  </div>
+  <div class="slider">
+    <a href="prod1.html">
+      <img src="image\1.jpg" class="active">
+    </a>
+    <a href="prod2.html">
+      <img src="image\2.jpg" class="active">
+    </a>
+    <a href="prod3.html">
+      <img src="image\3.jpg" class="active">
+    </a>
+  </div>
+  <div class="button-container">
+    <button onclick="prevImage()" class="button">Назад</button>
+    <button onclick="nextImage()" class="button">Вперед</button>
+  </div>
+
+  <script>
+    var currentImageIndex = 0;
+    var images = document.querySelectorAll('.slider img');
+
+    function showImage(index) {
+      images.forEach(img => img.classList.remove('active'));
+      images[index].classList.add('active');
+    }
+
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      showImage(currentImageIndex);
+    }
+
+    function prevImage() {
+      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+      showImage(currentImageIndex);
+    }
+
+    showImage(currentImageIndex);
+var currentBannerIndex = 0;
+var bannerImages = document.querySelectorAll('.banner-img');
+
+function showBannerImage(index) {
+  bannerImages.forEach(img => img.classList.remove('active'));
+  bannerImages[index].classList.add('active');
+}
+
+function nextBannerImage() {
+  currentBannerIndex = (currentBannerIndex + 1) % bannerImages.length;
+  showBannerImage(currentBannerIndex);
+}
+
+showBannerImage(currentBannerIndex);
+
+setInterval(nextBannerImage, 3000); 
+
+
+
+  </script>
+
+
+</body>
+
+</html>
